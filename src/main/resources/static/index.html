@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Digital</title>
+</head>
+
+<body>
+<h1>Calculadora Digital</h1>
+<label>Informação 1 <input type="number" id="info1"></label>
+<label>Informação 2 <input type="number" id="info2"></label>
+<select id="operacao">
+    <option value="download">Tempo de Download</option>
+    <option value="fotos">Quantidade de Fotos</option>
+    <option value="franquia">Uso da franquia</option>
+</select>
+
+<button onclick="simular()">Simular</button>
+
+<label>Resultado: <input id="resultado" readonly></label>
+
+
+<script>
+    async function simular(){
+    const info1 = document.getElementById("info1").value;
+    const info2 = document.getElementById("info2").value;
+    const op = document.getElementById("opercao").value;
+    const campoResultado = document.getElementById("resultado");
+    const url = `/digital/${op}?info1=${info1}&info2=${info2}`;
+    const resultado = await fetch(url);
+
+    if(resultado.ok){
+     campoResultado.value = await.resultado.text
+     } else {
+     campoResultado.value = "Erro ao Executar a Operação";
+     }
+   }
+</script>
+
+</body>
+
+</html>
